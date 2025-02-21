@@ -106,10 +106,10 @@
 
 %global go_api %(echo %{version}|cut -d. -f1.2)
 
-Name:           golang
-Version:        1.24.0
+Name:           go1.23
+Version:        1.23.6
 Release:        1
-Summary:        The Go Programming Language
+Summary:        Old version of the Go Programming Language for compatibility
 # source tree includes several copies of Mark.Twain-Tom.Sawyer.txt under Public Domain
 License:        BSD and Public Domain
 URL:            https://golang.org/
@@ -121,7 +121,7 @@ Source1:        fedora.go
 %if !%{golang_bootstrap}
 BuildRequires:  gcc-go >= 5
 %else
-BuildRequires:  golang > 1.4
+BuildRequires:  (golang > 1.4 or go1.23)
 %endif
 BuildRequires:  hostname
 BuildRequires:	locales-en >= 2.35-9
@@ -466,8 +466,6 @@ EOF
 
 %files tests -f testfiles.list
 %{goroot}/test
-%{_prefix}/lib/golang/lib/fips140/
-%{_prefix}/lib/golang/lib/wasm/
 
 %files bin
 %{_bindir}/go
