@@ -20,7 +20,7 @@
 %global _binaries_in_noarch_packages_terminate_build 0
 
 # Do not check any files in doc or src for requires
-%global __requires_exclude_from ^(%{_datadir}|/usr/lib)/%{name}/(doc|src)/.*$
+%global __requires_exclude_from ^(%{_datadir}|/usr/lib)/golang/(doc|src)/.*$
 # Seems to be the result of the shell parser screwing up on something
 # in -src
 %global __requires_exclude ^/bin/rc$
@@ -77,7 +77,7 @@
 %endif
 
 # OpenMandriva GOROOT
-%global goroot          %{_prefix}/lib/%{name}
+%global goroot          %{_prefix}/lib/golang
 
 %ifarch %{x86_64}
 %global gohostarch  amd64
@@ -108,7 +108,7 @@
 
 Name:           go1.23
 Version:        1.23.6
-Release:        1
+Release:        2
 Summary:        Old version of the Go Programming Language for compatibility
 # source tree includes several copies of Mark.Twain-Tom.Sawyer.txt under Public Domain
 License:        BSD and Public Domain
